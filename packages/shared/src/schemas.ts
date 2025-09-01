@@ -17,7 +17,7 @@ export const JobSchema = z.object({
   compensationRaw: z.unknown().optional(),
   descriptionMd: z.string().optional(),
   requirementsMd: z.string().optional(),
-  postedAt: z.string().optional(),
+  postedAt: z.string().datetime({ offset: true }).optional(),
 });
 
 export type Job = z.infer<typeof JobSchema>;
