@@ -1,0 +1,19 @@
+{
+  "name": "rendered-job-scraper",
+  "private": true,
+  "type": "module",
+  "workspaces": ["packages/*", "apps/*", "scripts"],
+  "scripts": {
+    "build": "tsc -b packages/shared packages/cf-ai apps/worker",
+    "test": "pnpm --filter='./packages/shared' test && pnpm --filter='./packages/cf-ai' test && pnpm --filter='./apps/worker' test"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vitest": "^1.4.0",
+    "zod": "^3.22.4",
+    "hono": "^4.2.7",
+    "miniflare": "^3.20240524.0",
+    "@cloudflare/workers-types": "^4.20240524.0",
+    "@types/node": "^20.12.7"
+  }
+}
