@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@job-scraper/shared": ["packages/shared/src"],
+      "@job-scraper/cf-ai": ["packages/cf-ai/src"]
+    }
+  },
+  "files": [],
+  "references": [
+    {"path": "packages/shared"},
+    {"path": "packages/cf-ai"},
+    {"path": "apps/worker"}
+  ]
+}

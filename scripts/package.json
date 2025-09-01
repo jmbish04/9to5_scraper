@@ -1,0 +1,8 @@
+{
+  "name": "@job-scraper/scripts",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@job-scraper/shared": "workspace:*"
+  }
+}
