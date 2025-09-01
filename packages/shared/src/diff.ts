@@ -8,7 +8,7 @@ export interface JobDiff {
 
 export function diffJobs(a: Job, b: Job): JobDiff[] {
   const changes: JobDiff[] = [];
-  for (const key of Object.keys(b) as (keyof Job)[]) {
+  for (const key of [...new Set([...Object.keys(a), ...Object.keys(b)])] as (keyof Job)[]) {
     if (a[key] !== b[key]) {
       changes.push({ field: key, from: a[key], to: b[key] });
     }
