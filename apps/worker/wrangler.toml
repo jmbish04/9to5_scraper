@@ -5,16 +5,18 @@ compatibility_date = "2024-05-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "JOB_SCRAPER_DB"
-database_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+database_id = "11092798-a3d9-44b8-be5f-1835c0027887"
 
 [[kv_namespaces]]
 binding = "KV"
-id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+id = "5e60b00818e9448b8f965af0fc96d39a"
 
 [[r2_buckets]]
 binding = "R2"
 bucket_name = "job-scraper"
 
+# Note: Vectorize binding would need to be created through the Cloudflare dashboard
+# as it's not available via the current API tools
 [[vectorize]]
 binding = "VECTORIZE_INDEX"
 index_name = "jobs"
@@ -29,5 +31,6 @@ SLACK_WEBHOOK_URL = ""
 
 [[triggers.crons]]
 cron = "0 * * * *"
+
 [[triggers.crons]]
 cron = "0 */3 * * *"
