@@ -1,4 +1,4 @@
-name = "job-scraper-worker"
+name = "9to5-scraper"
 main = "dist/index.js"
 compatibility_date = "2024-05-01"
 
