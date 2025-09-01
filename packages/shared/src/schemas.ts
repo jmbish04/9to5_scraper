@@ -14,7 +14,7 @@ export const JobSchema = z.object({
   salaryMax: z.number().int().optional(),
   salaryCurrency: z.string().optional(),
   salaryRaw: z.string().optional(),
-  compensationRaw: z.any().optional(),
+  compensationRaw: z.unknown().optional(),
   descriptionMd: z.string().optional(),
   requirementsMd: z.string().optional(),
   postedAt: z.string().optional(),
