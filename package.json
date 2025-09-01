@@ -3,9 +3,22 @@
   "private": true,
   "type": "module",
   "workspaces": ["packages/*", "apps/*", "scripts"],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "packageManager": "pnpm@9",
   "scripts": {
     "build": "tsc -b packages/shared packages/cf-ai apps/worker",
-    "test": "pnpm --filter='./packages/shared' test && pnpm --filter='./packages/cf-ai' test && pnpm --filter='./apps/worker' test"
+    "test": "pnpm --filter='./packages/shared' test && pnpm --filter='./packages/cf-ai' test && pnpm --filter='./apps/worker' test",
+
+    "// ---------- DEPLOY RULES ----------": "",
+    "deploy": "pnpm build && pnpm -F @job-scraper/worker deploy",
+    "deploy:preview": "pnpm build && pnpm -F @job-scraper/worker deploy:preview",
+    "deploy:staging": "pnpm build && pnpm -F @job-scraper/worker deploy:staging",
+    "deploy:prod": "pnpm build && pnpm -F @job-scraper/worker deploy:prod",
+
+    "// Run only worker without rebuilding everything (useful during hotfixes)": "",
+    "deploy:worker-only": "pnpm -F @job-scraper/worker deploy"
   },
   "devDependencies": {
     "typescript": "^5.4.0",
@@ -14,6 +27,7 @@
     "hono": "^4.2.7",
     "miniflare": "^3.20240524.0",
     "@cloudflare/workers-types": "^4.20240524.0",
-    "@types/node": "^20.12.7"
+    "@types/node": "^20.12.7",
+    "wrangler": "^3.72.0"
   }
 }
