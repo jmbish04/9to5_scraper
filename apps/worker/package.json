@@ -4,7 +4,10 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "vitest run"
+    "test": "vitest run",
+    "migrate:local": "npx wrangler d1 migrations apply DB --local",
+    "migrate:remote": "npx wrangler d1 migrations apply DB --remote",
+    "deploy": "npm run migrate:remote && npx wrangler deploy"
   },
   "dependencies": {
     "hono": "^4.2.7",
