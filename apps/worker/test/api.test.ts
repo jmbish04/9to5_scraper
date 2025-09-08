@@ -1,14 +1,14 @@
 import { describe, it, expect } from 'vitest';
-import app from '../src/index';
+import app, { Env } from '../src/index';
 
 /**
  * Creates a minimal Env object for testing, allowing injection of a custom AI.run implementation.
  */
-function makeEnv(aiRun?: (model: string, inputs: any) => Promise<any>) {
+function makeEnv(aiRun?: (model: string, inputs: Record<string, unknown>) => Promise<any>): Env {
   return {
     AI: { run: aiRun || (async () => ({})) },
     API_AUTH_TOKEN: 'test'
-  } as any;
+  };
 }
 
 describe('document generation worker', () => {
